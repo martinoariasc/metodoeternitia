@@ -248,6 +248,7 @@ export default function LandingPage({ onPurchase }) {
   const [showVipModal, setShowVipModal] = useState(false);
   const [vipActivated, setVipActivated] = useState(false);
   const [modalTriggered, setModalTriggered] = useState(false);
+  const pricingRef = useRef(null);
 
   const scrollToPricing = () => {
     document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' });
@@ -276,14 +277,36 @@ export default function LandingPage({ onPurchase }) {
 
   const currentPrice = finalOfferActive ? finalPrice : (vipActivated ? vipPrice : inflatedPrice);
 
-  // Trigger final offer 50s after VIP activation
+  // Trigger final offer 50s after VIP activation, OR when scrolling to the pricing card
   useEffect(() => {
     if (!vipActivated || finalModalTriggered) return;
+    
+    // Fallback timer just in case they don't scroll
     const timer = setTimeout(() => {
-      setFinalModalTriggered(true);
-      setShowFinalModal(true);
+      if (!finalModalTriggered) {
+        setFinalModalTriggered(true);
+        setShowFinalModal(true);
+      }
     }, 50000);
-    return () => clearTimeout(timer);
+
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting && !finalModalTriggered) {
+        // Trigger the 9.99 modal 5 seconds after they see the pricing card
+        setTimeout(() => {
+          setFinalModalTriggered(true);
+          setShowFinalModal(true);
+        }, 5000);
+        observer.disconnect();
+      }
+    }, { threshold: 0.3 });
+
+    if (pricingRef.current) observer.observe(pricingRef.current);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
   }, [vipActivated, finalModalTriggered]);
 
   const handleActivateVip = () => {
@@ -307,9 +330,9 @@ export default function LandingPage({ onPurchase }) {
 
       {/* ═══ VIP URGENCY BANNER (Hidden until VIP activated) ═══ */}
       {finalOfferActive && (
-        <div className="eternitia-top-bar bar-active">
-          <div className="bar-content">
-            <span style={{color: '#0C0F1B', fontWeight: 600}}>✓ Has desbloqueado el Pase de Acceso Total Confidencial</span>
+        <div className="eternitia-top-bar bar-active" style={{ background: 'rgba(12, 15, 27, 0.95)', borderBottom: '1px solid rgba(0, 247, 255, 0.2)' }}>
+          <div className="bar-content" style={{ padding: '0.75rem', textAlign: 'center' }}>
+            <span style={{color: '#FFFFFF', fontWeight: 600, letterSpacing: '0.05em'}}>✓ Has desbloqueado el Pase de Acceso Total Confidencial</span>
           </div>
         </div>
       )}
@@ -731,7 +754,7 @@ export default function LandingPage({ onPurchase }) {
             </div>
 
             {/* Pricing Card */}
-            <div className="pricing-card-wrapper">
+            <div className="pricing-card-wrapper" ref={pricingRef}>
               <div className="savings-badge">
                 AHORRÁS ${totalValue - currentPrice} USD
               </div>
@@ -785,7 +808,7 @@ export default function LandingPage({ onPurchase }) {
                     <strong style={{ color: 'var(--accent)', fontSize: '0.95rem', letterSpacing: '0.05em' }}>EL EMPUJÓN QUE NECESITÁS</strong>
                   </div>
                   <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
-                    Sé lo que pasa. Si dejás esto para mañana, se convierte en nunca. Por eso asumo el riesgo yo y te pongo un límite. <strong>Este acceso casi regalado dura exactamente 15 minutos.</strong> Es mi empujón silencioso para obligarte, con empatía, a que hoy des el paso por tu propio bien.
+                    Sabemos lo que pasa. Si dejás esto para mañana, se convierte en nunca. Por eso asumimos el riesgo nosotros y te ponemos un límite. <strong>Este acceso casi regalado dura exactamente 15 minutos.</strong> Es nuestro empujón silencioso para obligarte, con empatía, a que hoy des el paso por tu propio bien.
                   </p>
                   <CountdownTimer />
                 </div>
@@ -874,7 +897,7 @@ export default function LandingPage({ onPurchase }) {
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
               <span className="badge">¿POR QUÉ CONFIAR EN ESTE SISTEMA?</span>
               <h2 className="landing-h2" style={{ marginBottom: '1.5rem' }}>3 años de prueba y error<br /><em style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>resumidos para vos.</em></h2>
-              <p className="landing-body" style={{ textAlign: 'center', maxWidth: '560px', margin: '0 auto' }}>Este sistema no nació en un fin de semana. Es el resultado de 3 años de investigación, miles de dólares invertidos en herramientas y anuncios, y cientos de errores reales. Todo lo que funcionó quedó adentro. Todo lo que no, fue eliminado para que vos no pierdas el tiempo ni la plata que yo perdí.</p>
+              <p className="landing-body" style={{ textAlign: 'center', maxWidth: '560px', margin: '0 auto' }}>Este sistema no nació en un fin de semana. Es el resultado de 3 años de investigación de la academia axiom., miles de dólares invertidos en herramientas y cientos de errores reales. Todo lo que funcionó quedó adentro. Todo lo que no, fue eliminado para que vos no pierdas el tiempo ni el dinero que se perdió al principio.</p>
             </div>
 
             {/* Layer 2: Trust points */}
@@ -972,8 +995,8 @@ export default function LandingPage({ onPurchase }) {
           </button>
           
           <span className="vip-badge">Solo por hoy</span>
-          <h2 className="vip-title" style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Tengo un regalo para ti</h2>
-          <p className="vip-text">Entiendo que es una decisión importante. Por eso activé un <strong>acceso especial</strong> para que puedas empezar con la menor barrera posible. Es mi forma de darte el empujón que a mí me hubiera gustado tener cuando empecé.</p>
+          <h2 className="vip-title" style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Tenemos un regalo para vos</h2>
+          <p className="vip-text">Entendemos que es una decisión importante. Por eso activamos un <strong>acceso especial</strong> para que puedas empezar con la menor barrera posible. Es nuestra forma de darte el empujón que a nosotros nos hubiera gustado tener cuando empezamos.</p>
           
           <div className="vip-reward-wrap">
             <p className="vip-discount-value">-${inflatedPrice - vipPrice} OFF</p>
@@ -997,7 +1020,7 @@ export default function LandingPage({ onPurchase }) {
           
           <span className="vip-badge" style={{ background: 'rgba(239,68,68,0.12)', color: '#EF4444', borderColor: 'rgba(239,68,68,0.3)' }}>Última oportunidad</span>
           <h2 className="vip-title" style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Esperá, no te vayas todavía</h2>
-          <p className="vip-text">Sé que a veces cuesta dar el primer paso. Por eso quiero hacértelo aún más fácil. <strong>Accedé al sistema completo por menos de lo que cuesta un café con medialunas.</strong></p>
+          <p className="vip-text">Sabemos que a veces cuesta dar el primer paso. Por eso queremos hacértelo aún más fácil. <strong>Accedé al sistema completo por menos de lo que cuesta un café con medialunas.</strong></p>
           
           <div className="vip-reward-wrap">
             <p style={{ fontSize: '1.2rem', textDecoration: 'line-through', color: 'var(--text-tertiary)', marginBottom: '0.25rem' }}>${vipPrice}</p>
