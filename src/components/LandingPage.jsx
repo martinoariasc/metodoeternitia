@@ -1026,9 +1026,9 @@ export default function LandingPage({ onPurchase }) {
             ✕
           </button>
           
-          <span className="vip-badge" style={{ background: 'rgba(239,68,68,0.12)', color: '#EF4444', borderColor: 'rgba(239,68,68,0.3)' }}>Última oportunidad</span>
-          <h2 className="vip-title" style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Esperá, no te vayas todavía</h2>
-          <p className="vip-text">Sabemos que a veces cuesta dar el primer paso. Por eso queremos hacértelo aún más fácil. <strong>Accedé al sistema completo por menos de lo que cuesta un café con medialunas.</strong></p>
+          <span className="vip-badge" style={{ background: 'rgba(0, 247, 255, 0.1)', color: 'var(--accent)', borderColor: 'rgba(0, 247, 255, 0.2)' }}>Invitación Exclusiva</span>
+          <h2 className="vip-title" style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Tenemos una recompensa para vos</h2>
+          <p className="vip-text">Notamos que leíste toda la información. Valoramos a las personas que investigan antes de tomar una decisión. Como premio a tu interés, habilitamos este <strong>último pase subvencionado</strong> para que accedas al sistema completo por menos de lo que cuesta un café con medialunas, algo que realmente puede cambiarte la vida para siempre.</p>
           
           <div className="vip-reward-wrap">
             <p style={{ fontSize: '1.2rem', textDecoration: 'line-through', color: 'var(--text-tertiary)', marginBottom: '0.25rem' }}>${vipPrice}</p>
