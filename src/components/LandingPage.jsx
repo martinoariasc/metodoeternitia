@@ -269,13 +269,15 @@ export default function LandingPage({ onPurchase }) {
   const totalValue = 238;
   const inflatedPrice = 97;
   const vipPrice = 27;
-  const finalPrice = 9.90;
+  const finalPrice = 9.9;
 
   const [finalOfferActive, setFinalOfferActive] = useState(false);
   const [showFinalModal, setShowFinalModal] = useState(false);
   const [finalModalTriggered, setFinalModalTriggered] = useState(false);
 
-  const currentPrice = finalOfferActive ? finalPrice : (vipActivated ? vipPrice : inflatedPrice);
+  const currentPriceNumeric = finalOfferActive ? finalPrice : (vipActivated ? vipPrice : inflatedPrice);
+  const formatPrice = (p) => p === 9.9 ? "9,90" : p;
+  const currentPrice = formatPrice(currentPriceNumeric);
 
   // Trigger final offer ONLY when scrolling to the pricing card
   useEffect(() => {
@@ -744,7 +746,7 @@ export default function LandingPage({ onPurchase }) {
             {/* Pricing Card */}
             <div className="pricing-card-wrapper" ref={pricingRef}>
               <div className="savings-badge">
-                AHORRÁS ${totalValue - currentPrice} USD
+                AHORRÁS ${Math.floor(totalValue - currentPriceNumeric)} USD
               </div>
               <div className="pricing-card">
                 <p className="pricing-label">VALOR DE TODO POR SEPARADO</p>
@@ -785,7 +787,7 @@ export default function LandingPage({ onPurchase }) {
                       ${vipPrice}
                     </span>
                     <span className="price-current price-new" style={{ fontSize: 'clamp(3rem, 8vw, 4.5rem)', display: 'block', lineHeight: 1, color: 'var(--accent)', animation: 'popIn 0.5s var(--ease-out)' }}>
-                      ${finalPrice}
+                      ${formatPrice(finalPrice)}
                     </span>
                   </>
                 )}
@@ -1012,7 +1014,7 @@ export default function LandingPage({ onPurchase }) {
           
           <div className="vip-reward-wrap">
             <p style={{ fontSize: '1.2rem', textDecoration: 'line-through', color: 'var(--text-tertiary)', marginBottom: '0.25rem' }}>${vipPrice}</p>
-            <p className="vip-discount-value" style={{ fontSize: '4rem' }}>${finalPrice}</p>
+            <p className="vip-discount-value" style={{ fontSize: '4rem' }}>${formatPrice(finalPrice)}</p>
             <p className="vip-discount-sub">Acceso completo · Para siempre</p>
           </div>
           
@@ -1020,7 +1022,7 @@ export default function LandingPage({ onPurchase }) {
             <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '0.5rem', fontWeight: 600, letterSpacing: '0.05em' }}>ESTE ENLACE CONFIDENCIAL ESTÁ PROTEGIDO</p>
           </div>
           
-          <button className="vip-btn" onClick={handleActivateFinalOffer}>SÍ, QUIERO ACCEDER POR ${finalPrice} →</button>
+          <button className="vip-btn" onClick={handleActivateFinalOffer}>SÍ, QUIERO ACCEDER POR ${formatPrice(finalPrice)} →</button>
         </div>
       </div>
     </div>
