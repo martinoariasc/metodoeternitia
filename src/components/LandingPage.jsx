@@ -266,7 +266,7 @@ export default function LandingPage({ onPurchase }) {
     return () => clearTimeout(timer);
   }, [vipActivated, showVipModal, modalTriggered]);
 
-  const totalValue = 238;
+  const totalValue = 449;
   const inflatedPrice = 97;
   const vipPrice = 27;
   const finalPrice = 9.9;
@@ -702,73 +702,53 @@ export default function LandingPage({ onPurchase }) {
         </section>
 
 
-        {/* ═══ PREMIUM ADDONS (Order Bumps Showcase) ═══ */}
-        <section className="landing-section" style={{ borderTop: '1px solid rgba(0, 247, 255, 0.05)', position: 'relative', overflow: 'hidden' }}>
+        {/* ═══ VALUE STACK ═══ */}
+        <section id="pricing-section" className="landing-section" style={{ borderTop: '1px solid rgba(0, 247, 255, 0.05)', background: 'var(--bg-secondary)', position: 'relative', overflow: 'hidden' }}>
+          {/* Mesh Orbs */}
           <div className="hero-mesh-bg" style={{ opacity: 0.3 }}>
+            <div className="hero-mesh-orb hero-mesh-orb-1" style={{ animationDelay: '1s' }} />
             <div className="hero-mesh-orb hero-mesh-orb-3" style={{ animationDelay: '2s' }} />
           </div>
-          <div className="landing-narrow" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-            <span className="badge">LLEVÁ TUS RESULTADOS AL EXTREMO</span>
-            <h2 className="landing-h2" style={{ marginBottom: '1.5rem', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
-              Complementos <span className="gradient-text">Premium</span> Exclusivos
-            </h2>
-            <p className="landing-lead" style={{ maxWidth: '600px', margin: '0 auto 3rem' }}>
-              Estos aceleradores de resultados estarán disponibles para que los agregues a tu pedido <strong>con un solo clic y a un precio especial</strong> dentro de la página de pago segura.
-            </p>
+          <div className="landing-narrow" style={{ position: 'relative', zIndex: 1 }}>
+            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+              <span className="badge">TU ACCESO COMPLETO</span>
+              <h2 className="landing-h2">Todo lo que recibís hoy</h2>
+            </div>
             
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1.5rem', justifyContent: 'center' }}>
+            {/* BIG SHOWCASE GRID */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem', marginBottom: '4rem', justifyContent: 'center' }}>
               {[
-                { img: '/landing/pack-abundancia.png', name: 'Pack AbundancIA' },
-                { img: '/landing/boveda-ia.png', name: 'La Bóveda IA' },
-                { img: '/landing/arquitectura-web.png', name: 'Arquitectura Web' },
-                { img: '/landing/laboratorio-de-anuncios.png', name: 'Laboratorio de Anuncios' },
-                { img: '/landing/branding-e-identidad-visual-de-alto-ticket.png', name: 'Branding de Alto Ticket' }
+                { img: '/landing/mockup-ebooks.png', name: 'El Sistema EternitIA', desc: 'Vol. 1, 2 y 3. Arquitectura y Psicología.' },
+                { img: '/landing/pack-abundancia.png', name: 'Pack AbundancIA', desc: 'Toolkit de recursos aceleradores.' },
+                { img: '/landing/boveda-ia.png', name: 'La Bóveda IA', desc: 'Prompts confidenciales copiables.' },
+                { img: '/landing/laboratorio-de-anuncios.png', name: 'Lab de Anuncios', desc: 'Estrategias paramétricas de Ads.' }
               ].map((bump, i) => (
                 <div key={i} style={{ 
                   background: 'rgba(12,15,27,0.5)', backdropFilter: 'blur(10px)', 
                   border: '1px solid rgba(255,255,255,0.05)', borderRadius: '16px', 
                   padding: '1.5rem', transition: 'all 0.3s ease',
-                  display: 'flex', flexDirection: 'column', alignItems: 'center'
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center'
                 }}
                 onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(0, 247, 255,0.2)'; e.currentTarget.style.transform = 'translateY(-5px)'; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
-                  <img src={bump.img} alt={bump.name} style={{ width: '100%', maxWidth: '160px', height: 'auto', marginBottom: '1.2rem', filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.5))' }} />
-                  <strong style={{ color: 'var(--text-primary)', fontSize: '0.95rem', lineHeight: '1.4' }}>{bump.name}</strong>
+                  <img src={bump.img} alt={bump.name} style={{ width: '100%', maxWidth: i === 0 ? '220px' : '170px', height: 'auto', marginBottom: '1.2rem', filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.5))' }} />
+                  <strong style={{ color: 'var(--text-primary)', fontSize: '1.05rem', lineHeight: '1.4', marginBottom: '0.4rem' }}>{bump.name}</strong>
+                  <span style={{ color: 'var(--text-tertiary)', fontSize: '0.85rem' }}>{bump.desc}</span>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ═══ VALUE STACK ═══ */}
-        <section id="pricing-section" className="landing-section" style={{ background: 'var(--bg-secondary)', position: 'relative', overflow: 'hidden' }}>
-          {/* Mesh Orbs */}
-          <div className="hero-mesh-bg" style={{ opacity: 0.55 }}>
-            <div className="hero-mesh-orb hero-mesh-orb-1" style={{ animationDelay: '1s' }} />
-            <div className="hero-mesh-orb hero-mesh-orb-2" style={{ animationDelay: '5s' }} />
-          </div>
-          <div className="landing-narrow">
-            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-              <span className="badge">TU ACCESO COMPLETO</span>
-              <h2 className="landing-h2">Todo lo que recibís hoy</h2>
             </div>
 
             <div className="value-stack">
               {[
-                { name: 'Método EternitIA - Volumen I', sub: 'La Estructura: Psicología de persuasión y compra.', val: '$47', img: '/landing/mockup-ebooks.png' },
-                { name: 'Método EternitIA - Volumen II', sub: 'El Puente: Cómo construir tu oferta irresistible.', val: '$47' },
-                { name: 'Método EternitIA - Volumen III', sub: 'La Máquina IA: Prompting avanzado para automatizar ventas.', val: '$47' },
+                { name: 'Método EternitIA - Sistema Completo (Vol. I, II y III)', sub: 'La Estructura, El Puente y La Máquina IA.', val: '$141' },
+                { name: 'Pack AbundancIA', sub: 'Toolkit de recursos para multiplicar tus resultados.', val: '$47' },
+                { name: 'La Bóveda IA', sub: 'Acceso confidencial a los prompts exactos que usamos.', val: '$97' },
+                { name: 'Laboratorio de Anuncios', sub: 'Técnicas probadas y basadas en datos para escalar.', val: '$67' },
                 { name: 'Certificación Oficial "EternitIA"', sub: 'Pase directo a la evaluación y tu diploma oficial.', val: '$97' },
               ].map((item, i) => (
                 <div key={i} className="value-item" style={{ alignItems: 'center' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flex: 1 }}>
-                    {item.img ? (
-                      <div style={{ width: '48px', height: '48px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', padding: '4px' }}>
-                        <img src={item.img} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                      </div>
-                    ) : (
-                      <div style={{ width: '48px', height: '48px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent)', fontSize: '1.2rem' }}>✦</div>
-                    )}
+                    <div style={{ width: '28px', height: '28px', background: 'rgba(255,255,255,0.03)', borderRadius: '6px', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent)', fontSize: '1.1rem' }}>✦</div>
                     <div>
                       <div className="value-item-name">
                         <strong>{item.name}</strong>
