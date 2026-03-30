@@ -323,7 +323,7 @@ function HeroSection({ onStart }) {
         </p>
 
         <p className="fade-in-up fade-in-up-delay-2 hero-subtitle" style={{ fontWeight: 500, color: 'var(--text-primary)' }}>
-          Hacé este test rápido para calibrar el algoritmo...
+          Completá este test rápido para descubrir qué Arquitectura de Ventas se adapta a tu situación actual.
         </p>
 
         <div className="fade-in-up fade-in-up-delay-3">

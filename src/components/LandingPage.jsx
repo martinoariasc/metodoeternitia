@@ -702,6 +702,44 @@ export default function LandingPage({ onPurchase }) {
         </section>
 
 
+        {/* ═══ PREMIUM ADDONS (Order Bumps Showcase) ═══ */}
+        <section className="landing-section" style={{ borderTop: '1px solid rgba(0, 247, 255, 0.05)', position: 'relative', overflow: 'hidden' }}>
+          <div className="hero-mesh-bg" style={{ opacity: 0.3 }}>
+            <div className="hero-mesh-orb hero-mesh-orb-3" style={{ animationDelay: '2s' }} />
+          </div>
+          <div className="landing-narrow" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
+            <span className="badge">LLEVÁ TUS RESULTADOS AL EXTREMO</span>
+            <h2 className="landing-h2" style={{ marginBottom: '1.5rem', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
+              Complementos <span className="gradient-text">Premium</span> Exclusivos
+            </h2>
+            <p className="landing-lead" style={{ maxWidth: '600px', margin: '0 auto 3rem' }}>
+              Estos aceleradores de resultados estarán disponibles para que los agregues a tu pedido <strong>con un solo clic y a un precio especial</strong> dentro de la página de pago segura.
+            </p>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1.5rem', justifyContent: 'center' }}>
+              {[
+                { img: '/landing/pack-abundancia.png', name: 'Pack AbundancIA' },
+                { img: '/landing/boveda-ia.png', name: 'La Bóveda IA' },
+                { img: '/landing/arquitectura-web.png', name: 'Arquitectura Web' },
+                { img: '/landing/laboratorio-de-anuncios.png', name: 'Laboratorio de Anuncios' },
+                { img: '/landing/branding-e-identidad-visual-de-alto-ticket.png', name: 'Branding de Alto Ticket' }
+              ].map((bump, i) => (
+                <div key={i} style={{ 
+                  background: 'rgba(12,15,27,0.5)', backdropFilter: 'blur(10px)', 
+                  border: '1px solid rgba(255,255,255,0.05)', borderRadius: '16px', 
+                  padding: '1.5rem', transition: 'all 0.3s ease',
+                  display: 'flex', flexDirection: 'column', alignItems: 'center'
+                }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(0, 247, 255,0.2)'; e.currentTarget.style.transform = 'translateY(-5px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
+                  <img src={bump.img} alt={bump.name} style={{ width: '100%', maxWidth: '160px', height: 'auto', marginBottom: '1.2rem', filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.5))' }} />
+                  <strong style={{ color: 'var(--text-primary)', fontSize: '0.95rem', lineHeight: '1.4' }}>{bump.name}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ═══ VALUE STACK ═══ */}
         <section id="pricing-section" className="landing-section" style={{ background: 'var(--bg-secondary)', position: 'relative', overflow: 'hidden' }}>
           {/* Mesh Orbs */}
