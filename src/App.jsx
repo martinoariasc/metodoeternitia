@@ -257,7 +257,7 @@ function PortalTransition({ onComplete }) {
   };
 
   useEffect(() => {
-    const timer = setTimeout(triggerExit, 5000);
+    const timer = setTimeout(triggerExit, 6500);
     return () => clearTimeout(timer);
   }, []);
 
