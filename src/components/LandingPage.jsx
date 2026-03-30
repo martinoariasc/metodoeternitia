@@ -269,7 +269,7 @@ export default function LandingPage({ onPurchase }) {
   const totalValue = 238;
   const inflatedPrice = 97;
   const vipPrice = 27;
-  const finalPrice = 9.99;
+  const finalPrice = 9.90;
 
   const [finalOfferActive, setFinalOfferActive] = useState(false);
   const [showFinalModal, setShowFinalModal] = useState(false);
@@ -277,26 +277,15 @@ export default function LandingPage({ onPurchase }) {
 
   const currentPrice = finalOfferActive ? finalPrice : (vipActivated ? vipPrice : inflatedPrice);
 
-  // Trigger final offer 50s after VIP activation, OR when scrolling to the pricing card
+  // Trigger final offer ONLY when scrolling to the pricing card
   useEffect(() => {
-    if (!vipActivated || finalModalTriggered) return;
-    
-    // Fallback timer just in case they don't scroll
-    const timer = setTimeout(() => {
-      if (!finalModalTriggered) {
-        setFinalModalTriggered(true);
-        setShowFinalModal(true);
-      }
-    }, 50000);
+    if (finalModalTriggered) return;
 
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
       if (entry.isIntersecting && !finalModalTriggered) {
-        // Trigger the 9.99 modal 5 seconds after they see the pricing card
-        setTimeout(() => {
-          setFinalModalTriggered(true);
-          setShowFinalModal(true);
-        }, 5000);
+        setFinalModalTriggered(true);
+        setShowFinalModal(true);
         observer.disconnect();
       }
     }, { threshold: 0.3 });
@@ -304,10 +293,9 @@ export default function LandingPage({ onPurchase }) {
     if (pricingRef.current) observer.observe(pricingRef.current);
 
     return () => {
-      clearTimeout(timer);
       observer.disconnect();
     };
-  }, [vipActivated, finalModalTriggered]);
+  }, [finalModalTriggered]);
 
   const handleActivateVip = () => {
     setShowVipModal(false);
