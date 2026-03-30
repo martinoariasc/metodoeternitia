@@ -266,7 +266,7 @@ export default function LandingPage({ onPurchase }) {
     return () => clearTimeout(timer);
   }, [vipActivated, showVipModal, modalTriggered]);
 
-  const totalValue = 298;
+  const totalValue = 238;
   const inflatedPrice = 97;
   const vipPrice = 27;
   const finalPrice = 9.99;
@@ -727,10 +727,10 @@ export default function LandingPage({ onPurchase }) {
 
             <div className="value-stack">
               {[
-                { name: 'El Sistema Completo "Véndelo Todo"', sub: '4 guías estratégicas · De cero a tu primera venta', val: '$97', img: '/landing/mockup-ebooks.png' },
-                { name: 'BONUS: Pack AbundancIA', sub: '50+ fórmulas listas para copiar, pegar y vender', val: '$37' },
-                { name: 'BONUS: La Bóveda IA', sub: 'El arsenal completo de herramientas para reemplazar una agencia', val: '$67' },
-                { name: 'BONUS: Arquitectura Web con IA', sub: 'Creá tu propia web profesional sin saber programar', val: '$97' },
+                { name: 'Método EternitIA - Volumen I', sub: 'La Estructura: Psicología de persuasión y compra.', val: '$47', img: '/landing/mockup-ebooks.png' },
+                { name: 'Método EternitIA - Volumen II', sub: 'El Puente: Cómo construir tu oferta irresistible.', val: '$47' },
+                { name: 'Método EternitIA - Volumen III', sub: 'La Máquina IA: Prompting avanzado para automatizar ventas.', val: '$47' },
+                { name: 'Certificación Oficial "EternitIA"', sub: 'Pase directo a la evaluación y tu diploma oficial.', val: '$97' },
               ].map((item, i) => (
                 <div key={i} className="value-item" style={{ alignItems: 'center' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flex: 1 }}>
@@ -808,7 +808,7 @@ export default function LandingPage({ onPurchase }) {
                     <strong style={{ color: 'var(--accent)', fontSize: '0.95rem', letterSpacing: '0.05em' }}>EL EMPUJÓN QUE NECESITÁS</strong>
                   </div>
                   <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
-                    Sabemos lo que pasa. Si dejás esto para mañana, se convierte en nunca. Por eso asumimos el riesgo nosotros y te ponemos un límite. <strong>Este acceso casi regalado dura exactamente 15 minutos.</strong> Es nuestro empujón silencioso para obligarte, con empatía, a que hoy des el paso por tu propio bien.
+                    Sabemos cómo funciona la mente humana: <strong>lo que es gratis o regalado rara vez se valora o se aplica</strong>. Pero cuando inviertes en ti mismo, te ves obligado a actuar para que ese esfuerzo y dinero valgan la pena. Por eso asumimos el riesgo nosotros y te ponemos un límite. <strong>Este acceso casi regalado dura exactamente 15 minutos.</strong> Es nuestro empujón silencioso para obligarte, con empatía, a que te comprometas hoy y des el paso por tu propio bien.
                   </p>
                   <CountdownTimer />
                 </div>
