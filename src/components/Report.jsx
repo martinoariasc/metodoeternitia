@@ -18,16 +18,10 @@ export default function Report({ profile, onProceedToSales }) {
       <div style={{ position: 'absolute', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(0,228,153,0.03) 0%, transparent 70%)', bottom: '5%', right: '-10%', pointerEvents: 'none', filter: 'blur(60px)' }} />
 
       <div className="report-inner" style={{ position: 'relative', zIndex: 1 }}>
-        {/* Score */}
+        {/* Overview */}
         <div className="fade-in-up report-score-section">
           <span className="report-label">TU DIAGNÓSTICO PERSONAL</span>
-          <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-            {/* Animated ring around score */}
-            <div style={{ position: 'absolute', width: '140px', height: '140px', borderRadius: '50%', border: '1px solid rgba(0,247,255,0.1)', animation: 'ringPulse 4s ease-in-out infinite', pointerEvents: 'none' }} />
-            <div className="report-score-circle">
-              <span className="report-score-number">{score}</span>
-            </div>
-          </div>
+          <div style={{ height: '2rem' }} />
           <div className="report-level-badge">{level}</div>
         </div>
 
@@ -65,14 +59,17 @@ export default function Report({ profile, onProceedToSales }) {
         {/* What you need — NEVER reveals methods */}
         <div className="fade-in-up fade-in-up-delay-3 report-need-box">
           <h3 style={{ fontSize: '1.3rem', fontWeight: 400, marginBottom: '1rem' }}>
-            Lo que <em className="gradient-text">cambia todo</em> es esto:
+            No estás solo. El 99% lucha con esto.
           </h3>
+          <p style={{ fontSize: '1.05rem', lineHeight: '1.6', marginBottom: '1.5rem', color: 'var(--text-tertiary)' }}>
+            La buena noticia es que existe una habilidad que solo el 1% domina. No son trucos de redes sociales, sino los mismos secretos de venta que usan las grandes marcas, ahora disponibles para cualquier persona gracias a la Inteligencia Artificial.
+          </p>
           <div className="report-need-list">
             {[
-              'Un sistema paso a paso que funciona sin importar qué vendas',
-              'Herramientas que trabajan por vos mientras dormís',
-              'La habilidad que una vez que la tenés, nadie te la quita',
-              'Las mismas estrategias que usan empresas que facturan millones',
+              'Un ecosistema paso a paso que funciona sin importar qué vendas',
+              'Inteligencia Artificial que trabaja por vos las 24 horas',
+              'Arquitectura de ofertas imposibles de ignorar',
+              'El arte de conversar y cerrar clientes sin objeciones',
             ].map((item, i) => (
               <div key={i} className="report-need-item">
                 <span className="accent-diamond">✦</span>

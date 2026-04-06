@@ -343,15 +343,12 @@ export default function LandingPage({ onPurchase }) {
             <img src="/landing/logos/logo-horizontal-web-eternitia.png" alt="Método EternitIA" className="fade-in-up" style={{ maxWidth: '180px', marginBottom: '2rem', opacity: 0.85 }} />
 
             <h1 className="fade-in-up fade-in-up-delay-1 landing-headline">
-              Aprende a vender<br />
-              <em style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>TODO LO QUE TE IMAGINES</em><br />
-              con Inteligencia Artificial
+              El ecosistema para generar clientes 24/7<br />
+              <em style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>(Aprendiendo por fin cómo estructurar tus ventas de verdad apoyado en IA)</em>
             </h1>
 
             <p className="fade-in-up fade-in-up-delay-2 landing-subheadline">
-              Un sistema paso a paso que te enseña <strong>por qué la gente compra</strong> y 
-              cómo usar <strong>Inteligencia Artificial</strong> para que tu producto se venda{' '}
-              <strong>sin que vos tengas que estar encima todo el día.</strong>
+              Terminamos de analizar tus respuestas. Descártalo desde ya: el "talento" no es lo que te falta para generar grandes ingresos; es la <strong>información estructurada</strong>. Bienvenido a EternitIA. Hemos tomado la teoría real que utilizan las corporaciones multimillonarias para enseñarte a <strong>vender de verdad</strong>, y te mostraremos cómo usar <strong>Inteligencia Artificial</strong> para construirlo todo seguro y directo.
             </p>
 
             {/* Hero mockup preview */}
@@ -359,7 +356,7 @@ export default function LandingPage({ onPurchase }) {
               <img src="/landing/mockup-ebooks.png" alt="Método EternitIA" style={{ maxWidth: '320px', width: '80%', borderRadius: '16px', animation: 'levitate 6s ease-in-out infinite', filter: 'drop-shadow(0 30px 80px rgba(0, 247, 255, 0.15))' }} />
             </div>
 
-            <span className="badge fade-in-up fade-in-up-delay-2" style={{ marginBottom: '1.5rem' }}>SISTEMA PASO A PASO · 100% EN ESPAÑOL</span>
+            <span className="badge fade-in-up fade-in-up-delay-2" style={{ marginBottom: '1.5rem' }}>LA INFORMACIÓN QUE LAS CORPORACIONES NO COMPARTEN · 100% EN ESPAÑOL</span>
 
             <div className="fade-in-up fade-in-up-delay-3">
               <button onClick={scrollToPricing} className="btn btn-cta btn-large btn-shimmer">
@@ -379,10 +376,10 @@ export default function LandingPage({ onPurchase }) {
             <div className="hero-mesh-orb hero-mesh-orb-2" style={{ animationDelay: '3s' }} />
           </div>
           <div className="ebook-showcase-inner">
-            <span className="badge">EL SISTEMA</span>
+            <span className="badge">EL MÉTODO</span>
             <h2 className="landing-h2" style={{ textAlign: 'center' }}>
-              Todo lo que necesitás{' '}
-              <em style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>en un solo lugar.</em>
+              La información que te faltaba.{' '}
+              <em style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Estructurada para que la apliques.</em>
             </h2>
 
             {/* Product Mockup — Large */}
@@ -397,8 +394,7 @@ export default function LandingPage({ onPurchase }) {
             </div>
 
             <p className="landing-body" style={{ textAlign: 'center', margin: '0 auto' }}>
-              15 técnicas probadas para vender + herramientas de Inteligencia Artificial listas para usar.
-              Explicado paso a paso para que puedas aplicarlo desde el primer día, sin experiencia previa.
+              Los principios que las corporaciones más grandes del mundo aplican para facturar millones, desglosados en un sistema comprensible y accionable. Con herramientas de Inteligencia Artificial listas para usar, para que no tengas que adivinar nada. Empezás a aplicar desde el primer día.
             </p>
 
 
@@ -414,29 +410,21 @@ export default function LandingPage({ onPurchase }) {
             <div className="hero-mesh-orb hero-mesh-orb-3" style={{ animationDelay: '5s' }} />
           </div>
           <div className="landing-narrow">
-            <span className="badge">¿TE SUENA FAMILIAR?</span>
-            <h2 className="landing-h2">Si alguna de estas frases te describe,<br />este sistema fue creado para vos.</h2>
+            <span className="badge">TU DIAGNÓSTICO LO CONFIRMÓ</span>
+            <h2 className="landing-h2">Si alguna de estas frases te describe,<br />esta información fue preparada para vos.</h2>
 
-            <div className="pain-list">
-              {[
-                '"Veo a todos ganando plata y yo no sé ni por dónde empezar"',
-                '"Ya compré cursos y no sirvieron — estoy harto de promesas vacías"',
-                '"Quiero vender pero me da miedo parecer un vendedor molesto"',
-                '"No tengo plata para invertir en agencias ni herramientas caras"',
-                '"La IA me intimida, siento que se necesita ser programador"',
-                '"Tengo un producto pero no sé cómo hacer que la gente lo compre"',
-              ].map((pain, i) => (
-                <div key={i} className="pain-card">{pain}</div>
-              ))}
+            <div className="pain-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              <div className="pain-card">❌ Trabajo todos los días, pero a fin de mes el dinero no refleja mi esfuerzo real.</div>
+              <div className="pain-card">❌ Me paralizo con la tecnología y siento que la IA me va a dejar atrás.</div>
+              <div className="pain-card">❌ Siento que molesto cuando intento vender. Prefiero no ofrecer a que me rechacen.</div>
+              <div className="pain-card">❌ Veo a otros facturar fácil y pienso "yo no nací para vender".</div>
+              <div className="pain-card">❌ Me la paso creando contenido y haciendo esfuerzo, pero nadie termina pagando.</div>
             </div>
 
-            <p className="landing-bridge">
-              Si te identificaste con al menos una...{' '}
-              <strong>
-                tranquilo, no sos el único.
-              </strong>{' '}
-              Este sistema fue creado justamente para <strong>ayudarte a salir de ahí, paso a paso.</strong>
-            </p>
+            <div className="pain-card" style={{ background: 'rgba(0, 228, 153, 0.1)', borderColor: 'rgba(0, 228, 153, 0.3)', marginTop: '1.5rem' }}>
+              <span style={{ color: '#00E499' }}>✅ <strong>Lo que sentís no es falta de capacidad. Es falta de la información correcta.</strong></span><br />
+              <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginTop: '0.5rem', display: 'block' }}>Nadie nace sabiendo vender. Las corporaciones no ganan millones por talento, lo hacen aplicando principios estructurados que vos nunca tuviste acceso. Hoy eso cambia.</span>
+            </div>
           </div>
         </section>
 
@@ -454,29 +442,28 @@ export default function LandingPage({ onPurchase }) {
           <div className="landing-narrow">
             <div className="gradient-divider" style={{ marginBottom: '3rem' }} />
             <div className="pull-quote">
-              "La diferencia entre alguien que vende y alguien que no,
-              no es talento. Es tener el método correcto."
+              "La diferencia entre los que facturan de verdad y los que luchan cada mes,
+              no es talento ni suerte. Es haber accedido a la información correcta."
             </div>
 
             <p className="landing-body">
-              Las marcas más exitosas del mundo no venden porque son las mejores —{' '}
-              venden porque <strong>entienden cómo piensa la gente.</strong>{' '}
-              Son técnicas simples que llevan décadas funcionando.
+              Mientras vos te esforzás el doble por la mitad de resultado,{' '}
+              <strong>las corporaciones más grandes del mundo aplican principios estructurados</strong>{' '}
+              que llevan siglos moviéndose en silencio. Principios que nunca se enseñan en escuelas, cursos comunes, ni redes sociales.
             </p>
 
             <p className="landing-body">
-              El problema es que nadie te las enseña de forma práctica y accesible.{' '}
-              <strong>Hasta hoy.</strong>
+              El problema nunca fuiste vos. Fue que <strong>nadie te entregó esa información de forma clara, práctica y aplicable.</strong>{' '}
+              Hasta hoy.
             </p>
 
             <p className="landing-impact">
-              Tomamos esas técnicas probadas y las combinamos con Inteligencia Artificial para que cualquier persona pueda usarlas.
+              Tomamos esos principios guardados y te los entregamos estructurados, paso a paso, con Inteligencia Artificial como tu herramienta aceleradora para que veas resultados reales, no en años — en semanas.
             </p>
 
             <p className="landing-body">
-              No es teoría. Es un sistema listo para usar.{' '}
-              <strong>Paso a paso</strong>, sin experiencia previa,{' '}
-              empezás a aplicarlo <strong>desde el primer día</strong>.
+              Compartiremos esta metodología contigo; pero la magnitud del dinero que generes a partir de hoy,{' '}
+              <strong>solo dependerá de cuánto estudies, te esfuerces y apliques.</strong>
             </p>
           </div>
         </section>
@@ -552,16 +539,16 @@ export default function LandingPage({ onPurchase }) {
           <div style={{ position: 'absolute', bottom: '20%', left: '6%', width: '80px', height: '80px', border: '1px solid rgba(0, 247, 255,0.03)', borderRadius: '50%', pointerEvents: 'none', animation: 'ringPulse 9s ease-in-out infinite 2s' }} />
           <div className="landing-narrow">
             <span className="badge">LO QUE VA A PASAR CUANDO ACCEDAS</span>
-            <h2 className="landing-h2">Esto es lo que cambia en tu vida.<br /><em style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Cuando tenés las herramientas correctas.</em></h2>
+            <h2 className="landing-h2">Esto es lo que cambia en tu vida.<br /><em style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Cuando tenés la información correcta.</em></h2>
 
             <div className="result-list">
               {[
-                { before: 'No sabés qué vender ni por dónde empezar', after: 'Sabés exactamente qué vender y tenés el plan paso a paso' },
-                { before: 'Publicás cosas y nadie las compra', after: 'Entendés por qué la gente dice "sí" — y lo aplicás a cualquier cosa' },
-                { before: 'La IA te parece complicada y lejana', after: 'Tenés herramientas de IA trabajando como tu equipo de marketing gratuito' },
-                { before: 'Ves a otros ganar y sentís que es inalcanzable', after: 'Tenés tu propio sistema generando tu primera venta real' },
-                { before: 'No sabés cómo mostrar lo que vendés al mundo', after: 'Tu producto está en internet vendiendo 24/7 sin que estés presente' },
-                { before: 'Dependés de un sueldo que no te alcanza', after: 'Tenés una habilidad que funciona para siempre y nadie te puede quitar' },
+                { before: 'Trabajás el doble y el dinero no refleja tu esfuerzo', after: 'Entendés los principios que hacen que la gente quiera comprarte' },
+                { before: 'Sentís que molestar cuando intentás vender', after: 'Los clientes vienen a vos porque perciben autoridad y valor genuino' },
+                { before: 'La IA te confunde y no sabés cómo usarla', after: 'Tenés herramientas de IA listas que trabajan como tu equipo silencioso' },
+                { before: 'Pensás que te falta talento para vender', after: 'Descubrís que la venta es una ciencia y ya tenés el manual completo' },
+                { before: 'Creás contenido pero nadie termina pagando', after: 'Tu sistema automatizado filtra y atrae solo personas listas para comprarte' },
+                { before: 'Cobras barato porque los clientes siempre piden rebaja', after: 'Elevaste la percepción de tu marca y cobrás lo que realmente vale tu tiempo' },
               ].map((r, i) => (
                 <div key={i} className="result-row">
                   <div className="result-col result-col-before">
@@ -588,13 +575,13 @@ export default function LandingPage({ onPurchase }) {
           </div>
           <div className="landing-narrow" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
             <h2 className="landing-h2">
-              Esto no es un curso de "marketing digital".<br />
-              Esto es la habilidad de <em style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>vender lo que te imagines.</em>
+              Esto no es otro "curso de marketing digital".<br />
+              Esto es aprender a vender <em style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>LO QUE SEA QUE TE IMAGINES.</em>
             </h2>
             <p className="landing-body" style={{ textAlign: 'center', maxWidth: '560px', margin: '0 auto 2rem' }}>
-              Los principios que vas a dominar funcionan para productos digitales, productos físicos, servicios, bienes raíces,
-              comida, ropa, tecnología, consultoría, arte... lo que quieras. Porque están basados en cómo funciona la mente humana.
-              Y la mente humana es la misma en todos lados.
+              Los principios que vas a dominar no dependen de un nicho, una plataforma ni una moda. Funcionan para productos digitales, físicos, servicios, bienes raíces,
+              gastronomía, consultoría, arte... porque están basados en <strong>cómo funciona la mente humana al momento de decidir una compra</strong>.
+              Y la mente humana es la misma en todos lados, en todas las épocas.
             </p>
             <div className="universal-grid">
               {['Productos digitales', 'Productos físicos', 'Bienes raíces', 'Gastronomía', 'Servicios creativos', 'Consultoría', 'Moda y ropa', 'Lo que te imagines'].map((item, i) => (
@@ -617,20 +604,20 @@ export default function LandingPage({ onPurchase }) {
             <div className="hero-mesh-orb hero-mesh-orb-3" style={{ animationDelay: '7s' }} />
           </div>
           <div className="landing-narrow" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
-            <span className="badge">EL ECOSISTEMA</span>
+            <span className="badge">EL ECOSISTEMA COMPLETO</span>
             <h2 className="landing-h2">
-              4 pilares que trabajan <em style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>como un sistema.</em>
+              4 pilares que trabajan <em style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>como un solo sistema integrado.</em>
             </h2>
             <p className="landing-body" style={{ textAlign: 'center', maxWidth: '560px', margin: '0 auto 3rem' }}>
-              No es teoría que leés y te olvidás. Es un sistema de 4 capas diseñado para transformar cómo vendés para siempre.
+              No es teoría que leés y olvidás. Es un ecosistema de 4 capas diseñado para que por fin tengas la información estructurada que te faltaba, y la apliques con la potencia de la Inteligencia Artificial.
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem' }}>
               {[
-                { num: '01', title: 'La Mente', sub: 'Entendé por qué la gente compra. Psicología de persuasión que funciona en cualquier nicho.' },
-                { num: '02', title: 'El Vehículo', sub: 'Tu producto o servicio listo para venderse. Sin importar si es físico, digital o freelance.' },
-                { num: '03', title: 'La Máquina', sub: 'Herramientas de IA que trabajan como tu equipo de marketing 24/7. Gratis.' },
-                { num: '04', title: 'El Motor', sub: 'Estrategias de tráfico y conversión para que tu sistema funcione en automático.' },
+                { num: '01', title: 'Los Principios Ocultos', sub: 'Accedé a la información estructurada que las corporaciones aplican para generar deseo de compra. Lo que les tomó décadas descubrir, lo vas a tener en tus manos.' },
+                { num: '02', title: 'Tu Asistente IA 24/7', sub: 'Aprendé a usar la Inteligencia Artificial como herramienta aceleradora. Construí tu ecosistema de ventas en semanas, no en años.' },
+                { num: '03', title: 'El Arte de Cerrar', sub: 'Dominá las técnicas de comunicación que hacen que el cliente diga "sí" sin que lo presiones. Vender enseñando, nunca molestando.' },
+                { num: '04', title: 'Laboratorio de Alcance', sub: 'Aprendé a multiplicar tu visibilidad con técnicas basadas en datos reales. Que las personas correctas encuentren tu producto sin esfuerzo bruto.' },
               ].map((p, i) => (
                 <div key={i} className="pillar-card" style={{ background: 'rgba(12,15,27,0.65)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '20px', padding: '2rem 1.5rem', textAlign: 'left', transition: 'border-color 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s cubic-bezier(0.16,1,0.3,1)', position: 'relative', overflow: 'hidden', cursor: 'default', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.06), 0 4px 24px rgba(0,12,20,0.4)' }}
                   onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(0, 247, 255,0.15)'; e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = 'inset 0 1px 0 rgba(255,255,255,0.08), 0 24px 80px rgba(0, 247, 255,0.06)'; }}
@@ -712,7 +699,7 @@ export default function LandingPage({ onPurchase }) {
           <div className="landing-narrow" style={{ position: 'relative', zIndex: 1 }}>
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
               <span className="badge">TU ACCESO COMPLETO</span>
-              <h2 className="landing-h2">Todo lo que recibís hoy</h2>
+              <h2 className="landing-h2">Todo lo que recibís hoy<br /><em style={{ fontSize: '0.7em', fontStyle: 'normal', color: 'var(--text-secondary)' }}>(La información que va a cambiar cómo vendés para siempre)</em></h2>
             </div>
             
             {/* BIG SHOWCASE GRID */}
@@ -813,10 +800,10 @@ export default function LandingPage({ onPurchase }) {
                 <div style={{ marginTop: '1.5rem', padding: '1.25rem', background: 'var(--bg-primary)', borderRadius: '12px', border: '1px solid rgba(0, 247, 255, 0.2)', textAlign: 'center' }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '0.75rem' }}>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    <strong style={{ color: 'var(--accent)', fontSize: '0.95rem', letterSpacing: '0.05em' }}>EL EMPUJÓN QUE NECESITÁS</strong>
+                    <strong style={{ color: 'var(--accent)', fontSize: '0.95rem', letterSpacing: '0.05em' }}>ACCESO RESTRINGIDO</strong>
                   </div>
                   <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
-                    Sabemos cómo funciona la mente humana: <strong>lo que es gratis o regalado rara vez se valora o se aplica</strong>. Pero cuando inviertes en ti mismo, te ves obligado a actuar para que ese esfuerzo y dinero valgan la pena. Por eso asumimos el riesgo nosotros y te ponemos un límite. <strong>Este acceso casi regalado dura exactamente 15 minutos.</strong> Es nuestro empujón silencioso para obligarte, con empatía, a que te comprometas hoy y des el paso por tu propio bien.
+                    Este ecosistema detalla estrategias comerciales muy efectivas. Para mantener su valor y evitar que la información pierda fuerza, limitamos la cantidad de personas que pueden acceder a la vez. <strong>Tu lugar con este precio preferencial queda reservado por 15 minutos.</strong> Luego, se liberará automáticamente.
                   </p>
                   <CountdownTimer />
                 </div>
@@ -861,12 +848,10 @@ export default function LandingPage({ onPurchase }) {
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="1.5" style={{ flexShrink: 0 }}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M9 12l2 2 4-4" /></svg>
               <div>
                 <h3 style={{ fontSize: '1.2rem', fontWeight: 400, marginBottom: '0.75rem' }}>
-                  Tu tranquilidad es lo primero
+                  Protocolo de Garantía Blindada
                 </h3>
                 <p className="guarantee-text">
-                  Si en 7 días leés el material, hacés los ejercicios y sentís que no te ayudó —
-                  te devolvemos tu dinero. Solo mandanos un mensaje mostrando que lo intentaste.
-                  Queremos que te vaya bien de verdad, no que pagues por algo que no te sirve.
+                  Si en 7 días aplicás estas técnicas y usás las herramientas de IA como te indicamos, y no notas un progreso claro en tus resultados, te devolvemos todo tu dinero. Nuestra única condición es que demuestres que realmente seguiste los pasos.
                 </p>
               </div>
             </div>
@@ -904,8 +889,8 @@ export default function LandingPage({ onPurchase }) {
             {/* Layer 1: Big number */}
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
               <span className="badge">¿POR QUÉ CONFIAR EN ESTE SISTEMA?</span>
-              <h2 className="landing-h2" style={{ marginBottom: '1.5rem' }}>3 años de prueba y error<br /><em style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>resumidos para vos.</em></h2>
-              <p className="landing-body" style={{ textAlign: 'center', maxWidth: '560px', margin: '0 auto' }}>Este sistema no nació en un fin de semana. Es el resultado de 3 años de investigación de la academia axiom., miles de dólares invertidos en herramientas y cientos de errores reales. Todo lo que funcionó quedó adentro. Todo lo que no, fue eliminado para que vos no pierdas el tiempo ni el dinero que se perdió al principio.</p>
+              <h2 className="landing-h2" style={{ marginBottom: '1.5rem' }}>3 años de investigación y errores costosos<br /><em style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>para que vos no los cometas.</em></h2>
+              <p className="landing-body" style={{ textAlign: 'center', maxWidth: '560px', margin: '0 auto' }}>Este sistema no nació en un fin de semana. Es el resultado de 3 años de estudio de principios empresariales, miles de dólares invertidos en prueba y error, y cientos de fracasos reales de la academia axiom. Todo lo que realmente funciona quedó adentro. Todo lo que no, fue eliminado para ahorrarte el tiempo y el dinero que se perdió al principio. Te entregamos el camino limpio.</p>
             </div>
 
             {/* Layer 2: Trust points */}
@@ -939,15 +924,14 @@ export default function LandingPage({ onPurchase }) {
           <div className="landing-narrow" style={{ position: 'relative', zIndex: 1 }}>
             <div className="gradient-divider" style={{ marginBottom: '3rem' }} />
             <h2 className="landing-h2" style={{ marginBottom: '1.5rem' }}>
-              Las personas que cambiaron su vida<br />
-              no eran las más inteligentes.<br />
-              <em style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Eran las que decidieron dejar de esperar.</em>
+              Las personas que transformaron sus ingresos<br />
+              no eran las más inteligentes ni las más dotadas.<br />
+              <em style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Eran las que accedieron a la información correcta.</em>
             </h2>
 
             <p className="landing-body" style={{ textAlign: 'center', maxWidth: '520px', margin: '0 auto 2.5rem' }}>
-              A la mayoría de emprendedores les toma años de errores y miles de dólares perdidos descifrar esto. 
-              Con el Sistema EternitIA de tu lado, vos podés acortar ese camino a un par de semanas.
-              La única pregunta es: ¿seguís esperando, o empezás ahora?
+              A la mayoría les toma años de fracasos y miles de dólares descubrir lo que está dentro de este ecosistema. Hoy tenés la oportunidad de acortar ese camino a semanas.
+              La magnitud del resultado dependerá de cuánto estudies, te esfuerces y apliques. Nosotros te entregamos todo. Vos ponés la acción.
             </p>
 
             <button onClick={onPurchase} className="btn btn-cta btn-large btn-shimmer">
@@ -1004,7 +988,7 @@ export default function LandingPage({ onPurchase }) {
           
           <span className="vip-badge">Solo por hoy</span>
           <h2 className="vip-title" style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Tenemos un regalo para vos</h2>
-          <p className="vip-text">Entendemos que es una decisión importante. Por eso activamos un <strong>acceso especial</strong> para que puedas empezar con la menor barrera posible. Es nuestra forma de darte el empujón que a nosotros nos hubiera gustado tener cuando empezamos.</p>
+          <p className="vip-text">Sabemos que acceder a la información correcta puede cambiar completamente tus resultados financieros. Por eso abrimos un <strong>pase exclusivo con un valor especial</strong> para que puedas empezar sin dudarlo. Es nuestra forma de premiar a quienes ya dieron el primer paso: completar el diagnóstico.</p>
           
           <div className="vip-reward-wrap">
             <p className="vip-discount-value">-${inflatedPrice - vipPrice} OFF</p>
@@ -1028,7 +1012,7 @@ export default function LandingPage({ onPurchase }) {
           
           <span className="vip-badge" style={{ background: 'rgba(0, 247, 255, 0.1)', color: 'var(--accent)', borderColor: 'rgba(0, 247, 255, 0.2)' }}>Invitación Exclusiva</span>
           <h2 className="vip-title" style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Tenemos una recompensa para vos</h2>
-          <p className="vip-text">Notamos que leíste toda la información. Valoramos a las personas que investigan antes de tomar una decisión. Como premio a tu interés, habilitamos este <strong>último pase subvencionado</strong> para que accedas al sistema completo por menos de lo que cuesta un café con medialunas, algo que realmente puede cambiarte la vida para siempre.</p>
+          <p className="vip-text">Vimos que leíste toda la información con atención. Valoramos a las personas que investigan a fondo antes de tomar acción. Esa dedicación es exactamente lo que separa a quienes logran resultados de quienes solo lo sueñan. Como recompensa por tu interés, habilitamos este <strong>último pase ultra-reducido</strong> para que accedas a toda la información por una fracción del precio real.</p>
           
           <div className="vip-reward-wrap">
             <p style={{ fontSize: '1.2rem', textDecoration: 'line-through', color: 'var(--text-tertiary)', marginBottom: '0.25rem' }}>${vipPrice}</p>

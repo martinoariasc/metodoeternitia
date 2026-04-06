@@ -2,111 +2,75 @@ import { useState, useMemo } from 'react';
 
 const questions = [
   {
-    id: 1, tag: 'fear',
-    text: '¿Sentís que la IA va a dejarte atrás... pero no sabés cómo usarla a tu favor?',
+    id: 1, tag: 'stage',
+    text: 'Para poder darte la información correcta, necesitamos saber: ¿En qué etapa te encontrás hoy con tus ventas?',
     options: [
-      { label: 'Sí, me preocupa mucho', value: 'high', points: 3 },
-      { label: 'Un poco, pero no sé por dónde empezar', value: 'mid', points: 2 },
-      { label: 'No, ya la estoy usando', value: 'low', points: 1 },
+      { label: 'Quiero empezar mi primer negocio para generar ingresos, pero no arranco.', value: 'novice', points: 1 },
+      { label: 'Trabajo muchísimo todos los días, pero a fin de mes el dinero no refleja mi esfuerzo real.', value: 'stagnant', points: 1 },
+      { label: 'Intento vender, pero siempre me piden rebajas o buscan lo más barato. Siento que mi producto no se valora.', value: 'cheap', points: 1 },
     ],
   },
   {
-    id: 2, tag: 'hours',
-    text: '¿Cuántas horas al día dedicás a generar ingresos por tu cuenta?',
+    id: 2, tag: 'goal',
+    text: 'Hablemos de resultados financieros. Si pudieras aprender y dominar los principios que aplican las grandes corporaciones, ¿qué meta buscarías alcanzar primero?',
     options: [
-      { label: 'Cero. Todavía no empecé', value: 'zero', points: 3 },
-      { label: '1-3 horas, pero sin resultados claros', value: 'some', points: 2 },
-      { label: 'Más de 3 horas y ya genero algo', value: 'active', points: 1 },
+      { label: 'Escalar mis ingresos rápidamente de manera constante, apoyándome en un sistema automático.', value: 'scale', points: 1 },
+      { label: 'Generar el dinero suficiente para tener tranquilidad, sabiendo exactamente cómo atraer ventas sin sufrir.', value: 'peace', points: 1 },
+      { label: 'Tener la certeza de cobrar lo que realmente vale mi tiempo, sin depender de rogarle a nadie.', value: 'worth', points: 1 },
     ],
   },
   {
-    id: 3, tag: 'situation',
-    text: '¿Cuál de estas frases te describe mejor?',
+    id: 3, tag: 'barrier',
+    text: 'Sé sincero, ¿qué es lo que más te frustra hoy cuando intentas generar más ventas?',
     options: [
-      { label: 'Quiero independencia financiera pero no sé cómo lograrla', value: 'desire', points: 3 },
-      { label: 'Ya intenté vender algo online y no funcionó', value: 'failed', points: 2 },
-      { label: 'Tengo un negocio pero quiero crecer con IA', value: 'scaling', points: 1 },
+      { label: 'La tecnología. Siento confusión y me paralizo al intentar usar herramientas nuevas.', value: 'tech', points: 1 },
+      { label: 'Sentir que molesto. Me bloquea la idea de parecer un vendedor pesado y desesperado.', value: 'annoy', points: 1 },
+      { label: 'El agotamiento. Me la paso creando contenido y haciendo esfuerzo, pero nadie termina pagando.', value: 'exhaustion', points: 1 },
     ],
   },
   {
-    id: 4, tag: 'whatToSell',
-    text: 'Si pudieras vender algo mañana, ¿qué sería?',
+    id: 4, tag: 'talent',
+    text: 'Al ver a otros generar muchísimo dinero de forma aparente, ¿alguna vez pensaste "yo no nací para vender"?',
     options: [
-      { label: 'No tengo idea qué podría vender', value: 'nothing', points: 3 },
-      { label: 'Un producto digital (curso, ebook, guía)', value: 'digital', points: 2 },
-      { label: 'Un producto físico o servicio que ya tengo', value: 'physical', points: 1 },
+      { label: 'Sí, a veces siento que nacieron con un don y yo nunca igualaré sus resultados.', value: 'gift', points: 1 },
+      { label: 'Me frustra ver a otros facturar de forma fácil mientras yo trabajo el doble y cobro poco.', value: 'unfair', points: 1 },
+      { label: 'Sí, siento que me falta una habilidad natural y eso me genera mucha inseguridad frente a mis clientes.', value: 'insecure', points: 1 },
     ],
   },
   {
-    id: 5, tag: 'obstacle',
-    text: '¿Cuál es tu mayor obstáculo HOY para generar dinero?',
+    id: 5, tag: 'revelation',
+    text: 'Queremos ser directos: NADIE nace sabiendo vender. Las grandes corporaciones no ganan millones por "talento", lo hacen aplicando principios estructurados. ¿Cómo te hace sentir descubrir que tu problema nunca fue falta de talento, sino falta de esa información?',
     options: [
-      { label: 'No sé qué vender ni cómo empezar', value: 'lost', points: 3 },
-      { label: 'No tengo dinero para invertir', value: 'budget', points: 2 },
-      { label: 'No sé cómo atraer clientes', value: 'traffic', points: 1 },
+      { label: 'Me alivia, porque siempre creí que era mi culpa o que no servía para los negocios.', value: 'relief', points: 1 },
+      { label: 'Me da esperanza saber que lograr resultados es una habilidad que puedo aprender si me enseñan.', value: 'hope', points: 1 },
+      { label: 'Tiene mucho sentido. Siempre supe que me faltaba acceder a la información correcta.', value: 'makesense', points: 1 },
     ],
   },
   {
-    id: 6, tag: 'belief',
-    text: 'Cuando ves a alguien que gana bien vendiendo online, ¿qué pensás?',
+    id: 6, tag: 'ai',
+    text: 'Entender realmente la mente del comprador toma años de estudios y fracasos. Si tuvieras en tus manos el método exacto y aprendieras a usar la Inteligencia Artificial como herramienta para aplicarlo rápido y ahorrarte esos años, ¿cómo cambiaría tu enfoque?',
     options: [
-      { label: 'Seguro es una estafa o tiene algún truco', value: 'skeptic', points: 3 },
-      { label: 'Me gustaría pero siento que no es para mí', value: 'insecure', points: 2 },
-      { label: 'Sé que es posible, yo quiero lo mismo', value: 'believer', points: 1 },
+      { label: 'Aprovecharía la tecnología para no perder tiempo intentando adivinar qué es lo que realmente funciona.', value: 'time', points: 1 },
+      { label: 'Comprendería la estrategia base y usaría la IA como asistente para armar toda mi estructura de ventas.', value: 'assistant', points: 1 },
+      { label: 'Me apoyaría totalmente en las herramientas para ir directo al grano y ver resultados financieros mucho más pronto.', value: 'results', points: 1 },
     ],
   },
   {
-    id: 7, tag: 'investment',
-    text: '¿Cuánto invertiste hasta hoy en cursos o herramientas de marketing?',
+    id: 7, tag: 'effort',
+    text: 'No creemos en trucos mágicos. Aprender a aplicar los principios empresariales requiere disposición de tu parte para que funcionen. ¿Cómo te consideras frente a tener que aplicar este sistema?',
     options: [
-      { label: '$0 — nunca gasté nada', value: 'nothing', points: 3 },
-      { label: 'Menos de $100 pero sin resultados', value: 'little', points: 2 },
-      { label: 'Más de $100 y algo me sirvió', value: 'invested', points: 1 },
+      { label: 'Entiendo que todo gran cambio financiero exige trabajo. Estoy dispuesto a estudiar y hacer mi parte.', value: 'hardwork', points: 1 },
+      { label: 'Odio el esfuerzo innecesario. Precisamente por eso prefiero invertir tiempo en aprender el método más eficiente.', value: 'smartwork', points: 1 },
+      { label: 'Si me demuestran que la información funciona, yo asumo el compromiso. Pero no quiero seguir desperdiciando energía en cosas que no sirven.', value: 'skeptic', points: 1 },
     ],
   },
   {
-    id: 8, tag: 'sellFeeling',
-    text: '¿Qué sentís cuando escuchás la palabra "vender"?',
+    id: 8, tag: 'learning',
+    text: 'Aprender a vender de verdad implica entender bases nuevas. Te entregaremos todo el método estructurado. ¿Qué tan preparado te sientes para soltar tus viejas creencias sobre "cómo vender"?',
     options: [
-      { label: 'Me incomoda, siento que es manipular', value: 'uncomfortable', points: 3 },
-      { label: 'Es necesario pero no sé cómo hacerlo bien', value: 'neutral', points: 2 },
-      { label: 'Me gusta, sé que es una habilidad valiosa', value: 'positive', points: 1 },
-    ],
-  },
-  {
-    id: 9, tag: 'time',
-    text: '¿Hace cuánto venís pensando en generar ingresos por internet?',
-    options: [
-      { label: 'Hace meses o años pero nunca arranqué', value: 'long', points: 3 },
-      { label: 'Recientemente, y quiero empezar ya', value: 'recent', points: 2 },
-      { label: 'Ya estoy en acción, busco mejorar', value: 'active', points: 1 },
-    ],
-  },
-  {
-    id: 10, tag: 'environment',
-    text: 'Las personas cercanas a vos (familia, amigos), ¿qué opinan de emprender?',
-    options: [
-      { label: 'Creen que es riesgoso o una pérdida de tiempo', value: 'negative', points: 3 },
-      { label: 'No opinan mucho, no les interesa', value: 'indifferent', points: 2 },
-      { label: 'Me apoyan o también están emprendiendo', value: 'supportive', points: 1 },
-    ],
-  },
-  {
-    id: 11, tag: 'commitment',
-    text: 'Si tuvieras el sistema correcto, ¿cuánto tiempo le dedicarías por día?',
-    options: [
-      { label: 'Al menos 1-2 horas, sin excusa', value: 'committed', points: 1 },
-      { label: 'Lo que pueda, tengo poco tiempo libre', value: 'limited', points: 2 },
-      { label: 'No estoy seguro/a de poder comprometerme', value: 'unsure', points: 3 },
-    ],
-  },
-  {
-    id: 12, tag: 'intent',
-    text: 'Última pregunta: si existiera un sistema paso a paso para vender lo que quieras usando IA... ¿qué harías?',
-    options: [
-      { label: 'Lo probaría de inmediato', value: 'ready', points: 3 },
-      { label: 'Investigaría más antes de decidir', value: 'cautious', points: 2 },
-      { label: 'Solo lo compraría si tiene garantía', value: 'skeptic', points: 1 },
+      { label: 'Arranco desde cero, no tengo viejos vicios y estoy listo para absorber el método puro.', value: 'zero', points: 1 },
+      { label: 'Estoy harto de mis viejos métodos que no funcionaron. Listo para soltar y reaprender.', value: 'rewrite', points: 1 },
+      { label: 'Mi mente está abierta. Solo quiero la información exacta que consigue resultados; si me dicen qué hacer, yo lo aplico.', value: 'open', points: 1 },
     ],
   },
 ];
@@ -135,86 +99,56 @@ export default function Quiz({ onComplete }) {
         setSelected(null);
         setAnimating(false);
       } else {
-        const totalPoints = newAnswers.reduce((sum, a) => sum + a.points, 0);
-        const maxPoints = questions.length * 3;
-        const score = Math.round((totalPoints / maxPoints) * 100);
-
         const answerMap = {};
         newAnswers.forEach(a => { answerMap[a.questionTag] = a.value; });
 
         let level, title, description;
         
         // Diagnóstico altamente dinámico basado en las respuestas específicas del usuario
-        if (answerMap.obstacle === 'lost' && answerMap.sellFeeling === 'uncomfortable') {
-          level = 'Tu Perfil: El Creador Estancado';
-          title = 'Tenés las ideas, pero odias vender. Necesitas un sistema que venda por vos.';
-          description = 'El error más común es intentar crear algo perfecto sin saber cómo presentarlo. Necesitás automatizar la captación con un diseño innegable para no depender de tu persuasión manual.';
-        } else if (answerMap.obstacle === 'budget') {
-          level = 'Tu Perfil: Potencial Sin Apalancamiento';
-          title = 'No te falta capital, te falta apalancamiento tecnológico.';
-          description = 'Hoy podés construir un ecosistema de ventas que luce como el de una empresa de un millón de dólares sin gastar un centavo. Solo necesitás los comandos correctos de IA.';
-        } else if (answerMap.sellFeeling === 'uncomfortable') {
-          level = 'Tu Perfil: Arquitecto Silencioso';
-          title = 'Odiás perseguir clientes, pero sabés que necesitás facturar.';
-          description = 'Tu ventaja oculta es que un ecosistema bien diseñado (embudos oscuros, estética de autoridad) reemplaza al vendedor pesado. Tu diseño filtrará a los clientes por vos.';
-        } else if (answerMap.situation === 'desire' && score > 50) {
-          level = 'Tu Perfil: Visionario en Cero';
-          title = 'Tenés la ambición, pero necesitás un mapa exacto.';
-          description = 'El peor error que podés cometer hoy es empezar vendiendo productos físicos que no dejan margen. Necesitás empaquetar conocimiento digital usando IA y testear el mercado hoy mismo.';
-        } else if (answerMap.situation === 'failed') {
-          level = 'Tu Perfil: Ejecutor Frustrado';
-          title = 'Ya intestaste y no funcionó. La culpa no es tuya, fue el método.';
-          description = 'Vender en 2024 con tácticas del 2018 ya no sirve. Hoy, la estética premium y la Inteligencia Artificial son las únicas variables que separan a los que facturan de los que ruegan atención.';
+        if (answerMap.stage === 'novice') {
+          level = 'Tu Perfil: El Iniciador Intacto';
+          title = 'Tu mayor ventaja es que no tenés vicios que desaprender.';
+          description = 'Notamos tus ganas de empezar. Lo que te enseñaron tradicionalmente sobre vender no aplica a ti porque empezás en blanco. Has evitado cometer los errores críticos, y hoy evaluamos tu perfil para darte los principios exactos por donde empezar.';
+        } else if (answerMap.stage === 'stagnant') {
+          level = 'Tu Perfil: El Esforzado sin Sistema';
+          title = 'No te falta trabajo, te falta la palanca de un ecosistema estructurado.';
+          description = 'Notamos tu enorme esfuerzo reciente. Lo que te enseñaron tradicionalmente sobre "perseguir clientes" es exactamente lo que está frenando tus ingresos. Has estado compitiendo sin tener las herramientas tácticas. Hoy eso cambia.';
+        } else if (answerMap.stage === 'cheap') {
+          level = 'Tu Perfil: El Valor Oculto';
+          title = 'El problema no es tu precio, es la percepción de autoridad.';
+          description = 'Entendemos tu frustración. Cuando el cliente pide rebajas, es porque no ve el valor, y eso es una falla de estructura persuasiva. Las corporaciones no bajan el precio, elevan la percepción. Evaluamos tu perfil y sabemos exactamente cómo darle un giro a esto.';
         } else {
-          // Fallback ultra-optimizado por nivel de intensidad
-          if (score >= 70) {
-            level = 'Tu Perfil: Acelerador Nato';
-            title = 'Estás en el punto de ignición exacto para escalar tus ingresos.';
-            description = 'Tu nivel de compromiso y mentalidad son más altos que el 90% del mercado. Lo único que te separa de resultados drásticos es un sistema que conecte todo tu potencial de forma estructurada.';
-          } else {
-            level = 'Tu Perfil: Analista Cauteloso';
-            title = 'Estás investigando el mercado, pero el tiempo corre en tu contra.';
-            description = 'No necesitas seguir acumulando teoría. Necesitas un protocolo directo y aplicable que te permita ver pequeñas victorias económicas (como vender tu primer producto digital) hoy mismo.';
-          }
+          level = 'Tu Perfil: Acelerador Nato';
+          title = 'Estás en el punto de ignición exacto para escalar tus ingresos.';
+          description = 'Sabemos identificar a quienes tienen la mentalidad. Y hemos empaquetado los principios que mueven fortunas para que construyas tu propio sistema.';
         }
 
         // Personalized insights
         const insights = [];
 
-        if (answerMap.fear === 'high') {
-          insights.push({ icon: '🧠', title: 'Tu miedo es tu mayor ventaja disfrazada', text: 'Los que ignoran el cambio son los que realmente van a quedarse atrás. Vos ya diste el primer paso: reconocer que necesitás actuar.' });
-        } else if (answerMap.fear === 'mid') {
-          insights.push({ icon: '🔍', title: 'Tu curiosidad es el motor que te va a separar del resto', text: 'El 99% se queda en "algún día voy a aprender". Vos estás acá ahora. Eso ya te pone adelante.' });
+        if (answerMap.barrier === 'tech') {
+          insights.push({ icon: '🤖', title: 'La tecnología como asistente, no como barrera', text: 'Usaremos la IA para simplificarte cosas que antes tomaban meses. Si sabés apretar botones, vas a dominarla.' });
+        } else if (answerMap.barrier === 'annoy') {
+          insights.push({ icon: '🧠', title: 'Vender enseñando, nunca molestando', text: 'El método se basa en principios psicológicos. El cliente viene a vos, no al revés. Se terminaron los mensajes en frío.' });
         } else {
-          insights.push({ icon: '⚡', title: 'Ya usás IA — ahora necesitás convertirla en ingresos', text: 'Saber usar herramientas es genial. Pero sin el sistema correcto para monetizar, es como tener el auto más rápido sin conocer la ruta.' });
+          insights.push({ icon: '⚡', title: 'Esfuerzo inteligente vs esfuerzo bruto', text: 'Dejarás de gastar energía en crear contenido a ciegas para empezar a usar sistemas probados que traen clientes enfocados.' });
         }
 
-        if (answerMap.obstacle === 'lost') {
-          insights.push({ icon: '🗺️', title: 'No es que te falten ideas. Te falta el mapa', text: 'Cuando tenés el sistema paso a paso, la pregunta "¿qué vendo?" se responde sola. Literalmente podés vender lo que te imagines: desde un ebook hasta una propiedad.' });
-        } else if (answerMap.obstacle === 'budget') {
-          insights.push({ icon: '💡', title: 'Los que más facturan empezaron con $0', text: 'No necesitás dinero para empezar. Necesitás inteligencia aplicada. Las mejores herramientas tienen versiones gratuitas. Tu única inversión real es aprender.' });
+        if (answerMap.talent === 'gift' || answerMap.talent === 'insecure') {
+           insights.push({ icon: '🎯', title: 'El talento es un mito. La estructura es real.', text: 'No naciste sin un don, naciste sin la información de las corporaciones. Hoy te entregaremos esa información de forma estructurada.' });
         } else {
-          insights.push({ icon: '🎯', title: 'El problema no es tu producto. Es cómo lo comunicás', text: 'Hay un método específico para que las personas correctas encuentren lo que ofrecés y digan "necesito esto". Y se puede automatizar.' });
+           insights.push({ icon: '💎', title: 'Sentido de iniquidad justificado', text: 'Tenés razón: es injusto ver a otros facturar si no sabés lo que ellos saben (los principios ocultos). La cancha está a punto de nivelarse.' });
         }
 
-        if (answerMap.sellFeeling === 'uncomfortable') {
-          insights.push({ icon: '💛', title: 'Si vender te incomoda, este sistema es especialmente para vos', text: 'Existe una forma de vender donde no manipulás, no forzás, no incomodás a nadie. Solo servís. Y el dinero llega como consecuencia. Es lo opuesto a lo que imaginás.' });
-        } else if (answerMap.sellFeeling === 'neutral') {
-          insights.push({ icon: '🔑', title: 'Sabés que vender es importante — ahora falta el "cómo"', text: 'El "cómo" no es intuición ni talento natural. Es un sistema replicable que cualquier persona puede aprender y aplicar desde el primer día.' });
+        if (answerMap.effort === 'smartwork') {
+           insights.push({ icon: '♟️', title: 'Inteligencia sobre Fuerza', text: 'Si odiás el trabajo innecesario, amarás implementar algoritmos de IA que sistematicen tus conversiones.' });
         } else {
-          insights.push({ icon: '🔥', title: 'Tu mentalidad ya está lista. Solo falta el acelerador', text: 'Ya entendés que vender es una habilidad de vida. Lo que vas a descubrir es cómo multiplicar esa habilidad usando herramientas que no existían hace 2 años.' });
+           insights.push({ icon: '🧱', title: 'El esfuerzo bien canalizado', text: 'Sabemos que sos disciplinado. Lo único que faltaba era un mapa exacto para no pisar en falso.' });
         }
 
-        let closingLine;
-        if (answerMap.situation === 'desire') {
-          closingLine = 'La independencia financiera no empieza con un millón. Empieza con tu primera venta. Y esa primera venta está más cerca de lo que pensás.';
-        } else if (answerMap.situation === 'failed') {
-          closingLine = 'Que algo no haya funcionado antes no significa que no funcione. Significa que faltaba una pieza. Ahora está completa.';
-        } else {
-          closingLine = 'Ya tenés la base. Lo que falta es el sistema que une todo y lo multiplica. Estás a un paso.';
-        }
+        const closingLine = 'Hemos empaquetado los principios que mueven fortunas. Te enseñaremos cómo usar toda la potencia de la Inteligencia Artificial para que construyas tu sistema de ventas y aprendas, por fin, a vender de verdad.';
 
-        onComplete({ score, level, title, description, insights, closingLine, answerMap, answers: newAnswers });
+        onComplete({ score: 100, level, title, description, insights, closingLine, answerMap, answers: newAnswers });
       }
     }, 600);
   };

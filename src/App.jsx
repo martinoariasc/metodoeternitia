@@ -315,20 +315,16 @@ function HeroSection({ onStart }) {
         </div>
 
         <h1 className="fade-in-up fade-in-up-delay-1 hero-title">
-          Existe una habilidad que el <span style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>1% de las personas</span> utiliza para dominar su mercado.
+          Aprende a vender <span style={{ background: 'linear-gradient(135deg, #00F7FF, #00E499)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>LO QUE SEA QUE TE IMAGINES</span> con Inteligencia Artificial.
         </h1>
 
         <p className="fade-in-up fade-in-up-delay-2 hero-subtitle">
-          Una ventaja tan profunda que las corporaciones más poderosas del mundo invierten millones en mantenerla oculta. Hoy, esa habilidad puede ser tuya.
-        </p>
-
-        <p className="fade-in-up fade-in-up-delay-2 hero-subtitle" style={{ fontWeight: 500, color: 'var(--text-primary)' }}>
-          Sabemos que tu situación es única. Completá este breve diagnóstico para que podamos entender tu punto de partida y entregarte el plan de acción exacto para tu caso.
+          Descubre cómo la Inteligencia Artificial y los principios secretos que guardan las corporaciones más grandes del mundo te permiten construir un sistema automatizado que consigue clientes y multiplica tus ingresos 24/7.
         </p>
 
         <div className="fade-in-up fade-in-up-delay-3">
           <button onClick={onStart} className="btn btn-primary btn-large btn-shimmer">
-            HACER MI TEST GRATIS
+            DESCUBRIR CÓMO LOGRARLO AHORA (Tomará 30 segs)
             <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
